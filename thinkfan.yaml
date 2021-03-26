@@ -1,0 +1,12 @@
+sensors:
+  - nvml: 01:00.0
+
+fans:
+  - hwmon: /sys/devices/platform/nct6775.656/hwmon/hwmon2/pwm1
+
+levels:
+  - [0, 0, 30]
+  - [100, 30, 50]
+  - [200, 50, 60]	
+  - [255, 60, 100]
+
