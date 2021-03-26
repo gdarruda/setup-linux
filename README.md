@@ -16,3 +16,8 @@ Se o Bluetooth não auto-conectar:
 
 1. Copiar o `btautoconnect.desktop` para `~/.config/autostart`
 2. Copiar o `btautoconnect.sh` para `~/bin`
+
+## Configuração do Teclado
+
+1. Copiar arquivo `.XCompose`para a home
+2. Adicionar essa linha `GTK_IM_MODULE=xim`
