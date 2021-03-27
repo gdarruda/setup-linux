@@ -21,3 +21,9 @@ Se o Bluetooth não auto-conectar:
 
 1. Copiar arquivo `.XCompose`para a home
 2. Adicionar essa linha `GTK_IM_MODULE=xim`
+
+## Compilando o Pomodoro
+
+1. Instalar dependências: `sudo apt install gettext valac pkg-config desktop-file-utils appstream-util libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev autoconf-archive libgom-1.0-dev libsqlite3-dev`
+
+2. 
