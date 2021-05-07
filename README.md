@@ -32,6 +32,12 @@ Se o Bluetooth não auto-conectar:
 
 ## Compilando o Pomodoro
 
-1. Instalar dependências: `sudo apt install gettext valac pkg-config desktop-file-utils appstream-util libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev autoconf-archive libgom-1.0-dev libsqlite3-dev`
+1. Instalar dependências: `sudo apt install autoconf autopoint gettext libtool autoconf-archive pkg-config desktop-file-utils gobject-introspection libglib2.0-dev gsettings-desktop-schemas gsettings-desktop-schemas-dev libappstream-glib-dev intltool appstream-util autoconf-archive libxcrypt-source automake autoconf libtool appstream-util autoconf-archive gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libappindicator3-dev gettext valac pkg-config desktop-file-utils appstream-util libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev autoconf-archive libgom-1.0-dev`
 
-2. 
+2. Fazer o build
+
+```
+./autogen.sh --prefix=/usr --datadir=/usr/share
+make
+sudo make install
+```
