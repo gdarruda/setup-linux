@@ -6,9 +6,17 @@ Scripts para configuração de hardware do Pop!_OS.
 
 Executar esse comando para carregar os drivers: `sudo kernelstub -a acpi_enforce_resources=lax`
 
+Instalar o lm-sensors: `sudo apt install lm-sensors`
+
+Executar o sensors-detect: `sudo sensors-detect`
+
 ## Configuração do thinkfan
 
+Instalar o yaml-cpp: `sudo apt-get install libyaml-cpp-dev`
+
 Após instalar o thinkfan, copiar o `thinkfan.yml` para o /etc
+
+Ativar o thinkfan: `sudo systemctl enable thinkfan` 
 
 ## Configuração do Bluetooth
 
@@ -20,7 +28,7 @@ Se o Bluetooth não auto-conectar:
 ## Configuração do Teclado
 
 1. Copiar arquivo `.XCompose`para a home
-2. Adicionar essa linha `GTK_IM_MODULE=xim`
+2. Adicionar essa linha `GTK_IM_MODULE=xim` ao `/etc/environmet`
 
 ## Compilando o Pomodoro
 
