@@ -12,7 +12,7 @@ Executar o sensors-detect: `sudo sensors-detect`
 
 ## Configuração do thinkfan
 
-Instalar o yaml-cpp: `sudo apt-get install libyaml-cpp-dev`
+Instalar o yaml-cpp: `sudo apt-get install cmake libyaml-cpp-dev`
 
 Após instalar o thinkfan, copiar o `thinkfan.yml` para o /etc
 
@@ -22,8 +22,10 @@ Ativar o thinkfan: `sudo systemctl enable thinkfan`
 
 Se o Bluetooth não auto-conectar:
 
-1. Copiar o `btautoconnect.desktop` para `~/.config/autostart`
-2. Copiar o `btautoconnect.sh` para `~/bin`
+1. Criar pasta `mkdir ~/.config/autostart` 
+2. Copiar o `btautoconnect.desktop` para `~/.config/autostart`
+3. Criar diretório `mkdir ~/bin`
+4. Copiar o `btautoconnect.sh` para `~/bin`
 
 ## Configuração do Teclado
 
