@@ -20,9 +20,9 @@ Scripts para configuração de hardware do Pop!_OS.
 Se o Bluetooth não auto-conectar:
 
 1. Criar pasta: `mkdir ~/.config/autostart` 
-2. Configurar o autostart: `mv btautoconnect.desktop ~/.config/autostart`
+2. Configurar o autostart: `cp btautoconnect.desktop ~/.config/autostart`
 3. Criar diretório: `mkdir ~/bin`
-4. Copiar o comando: `mv btautoconnect.sh ~/bin`
+4. Copiar o comando: `cp btautoconnect.sh ~/bin`
 
 ## Configuração do Teclado
 
@@ -37,3 +37,4 @@ Se o Bluetooth não auto-conectar:
 
 ## Instalando o Zsh
 
+1. Após ativar/instalar, copiar as configurações: `cp .zshrc ~/`
