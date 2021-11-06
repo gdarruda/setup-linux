@@ -4,7 +4,7 @@ Scripts para configuração do Linux
 
 ## Detectando sensores
 
-1. Executar esse comando para carregar os drivers: `sudo kernelstub -a acpi_enforce_resources=lax`
+1. Adicionar a linha `acpi_enforce_resources=lax` no parametro do `/etc/default/grub`. Atualizar o grub: `sudo grub2-mkconfig -o /boot/grub2/grub.cfg`
 2. Instalar o lm-sensors: `sudo dnf install lm_sensors`
 3. Executar o sensors-detect: `sudo sensors-detect`
 
