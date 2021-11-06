@@ -1,4 +1,4 @@
-# Setup Pop!_OS
+# Setup Linux
 
 Scripts para configuração de hardware do Pop!_OS.
 
