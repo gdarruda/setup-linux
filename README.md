@@ -1,6 +1,6 @@
 # Setup Linux
 
-Scripts para configuração de hardware do Pop!_OS.
+Scripts para configuração do Linux
 
 ## Detectando sensores
 
