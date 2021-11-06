@@ -5,7 +5,7 @@ Scripts para configuração do Linux
 ## Detectando sensores
 
 1. Executar esse comando para carregar os drivers: `sudo kernelstub -a acpi_enforce_resources=lax`
-2. Instalar o lm-sensors: `sudo apt install lm-sensors`
+2. Instalar o lm-sensors: `sudo dnf install lm_sensors`
 3. Executar o sensors-detect: `sudo sensors-detect`
 
 ## Configuração do thinkfan
