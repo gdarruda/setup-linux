@@ -20,6 +20,8 @@ Scripts para configuração do Linux
 
 1. Copiar arquivo `.XCompose`para a home
 2. Adicionar essa linha `GTK_IM_MODULE=xim` ao `/etc/environmet`
+3. Mover o arquivo para `/etc/systemd/system/`
+4. Ativar o serviço `sudo systemctl enable keycron`
 
 ## Instalando o Zsh
 
