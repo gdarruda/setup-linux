@@ -15,4 +15,6 @@
     - name: Install Docker
       ansible.builtin.include_tasks: 
         file: docker.yaml
-  
+    - name: Config i3
+      ansible.builtin.include_tasks: 
+        file: i3.yaml

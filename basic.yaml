@@ -2,14 +2,6 @@
   dnf:
     name: "*"
     state: latest
-- name: Import VS Code key
-  ansible.builtin.rpm_key:
-    state: present
-    key: https://packages.microsoft.com/keys/microsoft.asc
-- name: Adding VS Code repo to DNF
-  copy:
-     src: resources/vscode.repo
-     dest: /etc/yum.repos.d/vscode.repo
 - name: Check Update DNF
   shell: dnf check-update
 - name: Install tooling (e.g. vim, htop, zsh, vscode)
@@ -18,7 +10,6 @@
       - vim
       - htop
       - zsh
-      - code
       - ibm-plex-fonts-all
       - git
     state: latest

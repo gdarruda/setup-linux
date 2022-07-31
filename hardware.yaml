@@ -1,11 +1,11 @@
-# - name: Upload config Keychron
-#   copy:
-#      src: resources/hid_apple.conf
-#      dest: /etc/modprobe.d/hid_apple.conf
-# - name: Set config Keychron
-#   shell: dracut --regenerate-all --force
-# - name: Reboot machine (Keychron)
-#   ansible.builtin.reboot:
+- name: Upload config Keychron
+  copy:
+     src: resources/hid_apple.conf
+     dest: /etc/modprobe.d/hid_apple.conf
+- name: Set config Keychron
+  shell: dracut --regenerate-all --force
+- name: Reboot machine (Keychron)
+  ansible.builtin.reboot:
 - name: Add RPM Fusion (free)
   dnf:
     name:

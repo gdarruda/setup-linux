@@ -1,0 +1,39 @@
+- name: Copying Xresources
+  copy:
+     src: resources/.Xresources
+     dest: ~/.Xresources
+- name: Setting scale for all applications
+  shell: xrdb -merge ~/.Xresources
+- name: Set default sink to HDMI
+  shell: pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1
+  become_user: gdarruda
+- name: Inverting mouse scroll
+  copy:
+     src: resources/40-libinput.conf
+     dest: /usr/share/X11/xorg.conf.d/40-libinput.conf resources
+- name: Import VS Code key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+- name: Adding VS Code repo to DNF
+  copy:
+     src: resources/vscode.repo
+     dest: /etc/yum.repos.d/vscode.repo
+- name: Install GUI tools
+  dnf:
+    name:
+      - code
+      - ibm-plex-fonts-all
+      - alacritty
+- name: Copy i3 config
+  copy:
+    src: resources/config
+    dest: ~/.config/i3/config
+  become_user: gdarruda
+- name: Copy i3 config (status)
+  copy:
+    src: resources/config_i3_status
+    dest: ~/.config/i3status/config
+  become_user: gdarruda
+- name: Restart i3
+  shell: i3-msg restart
