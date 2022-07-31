@@ -2,9 +2,7 @@
   dnf:
     name: "*"
     state: latest
-- name: Check Update DNF
-  shell: dnf check-update
-- name: Install tooling (e.g. vim, htop, zsh, vscode)
+- name: Install tooling (e.g. vim, htop, zsh)
   dnf:
     name:
       - vim

@@ -3,16 +3,13 @@
      src: resources/.Xresources
      dest: ~/.Xresources
   become_user: gdarruda
-# - name: Setting scale for all applications
-#   shell: xrdb -merge ~/.Xresources
-#   become_user: gdarruda
 - name: Set default sink to HDMI
   shell: pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1
   become_user: gdarruda
 - name: Inverting mouse scroll
   copy:
      src: resources/40-libinput.conf
-     dest: /usr/share/X11/xorg.conf.d/40-libinput.conf resources
+     dest: /usr/share/X11/xorg.conf.d/40-libinput.conf
 - name: Import VS Code key
   ansible.builtin.rpm_key:
     state: present
@@ -44,6 +41,3 @@
   become_user: gdarruda
 - name: Reboot machine (i3)
   ansible.builtin.reboot:
-# - name: Restart i3
-#   shell: i3-msg restart
-#   become_user: gdarruda
