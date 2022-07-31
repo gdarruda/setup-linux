@@ -10,20 +10,6 @@
   copy:
      src: resources/40-libinput.conf
      dest: /usr/share/X11/xorg.conf.d/40-libinput.conf
-- name: Import VS Code key
-  ansible.builtin.rpm_key:
-    state: present
-    key: https://packages.microsoft.com/keys/microsoft.asc
-- name: Adding VS Code repo to DNF
-  copy:
-     src: resources/vscode.repo
-     dest: /etc/yum.repos.d/vscode.repo
-- name: Install GUI tools
-  dnf:
-    name:
-      - code
-      - ibm-plex-fonts-all
-      - alacritty
 - name: Copy i3 config
   copy:
     src: resources/config

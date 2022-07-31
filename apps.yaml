@@ -1,0 +1,24 @@
+- name: Import VS Code key
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+- name: Import 1Password key
+  rpm_key:
+    state: present
+    key: https://downloads.1password.com/linux/keys/1password.asc
+- name: Adding VS Code repo to DNF
+  copy:
+     src: resources/vscode.repo
+     dest: /etc/yum.repos.d/vscode.repo
+- name: Adding 1 Password repo to DNF
+  copy:
+     src: resources/1password.repo
+     dest: /etc/yum.repos.d/1password.repo
+- name: Install GUI tools
+  dnf:
+    name:
+      - code
+      - 1password
+      - alacritty
+      - ffmpeg
+      - ffmpeg-devel
