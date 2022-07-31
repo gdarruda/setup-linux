@@ -10,7 +10,6 @@
       - vim
       - htop
       - zsh
-      - ibm-plex-fonts-all
       - git
     state: latest
 - name: Set zsh as default shell

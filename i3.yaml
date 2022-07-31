@@ -2,8 +2,10 @@
   copy:
      src: resources/.Xresources
      dest: ~/.Xresources
-- name: Setting scale for all applications
-  shell: xrdb -merge ~/.Xresources
+  become_user: gdarruda
+# - name: Setting scale for all applications
+#   shell: xrdb -merge ~/.Xresources
+#   become_user: gdarruda
 - name: Set default sink to HDMI
   shell: pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1
   become_user: gdarruda
@@ -30,10 +32,18 @@
     src: resources/config
     dest: ~/.config/i3/config
   become_user: gdarruda
+- name: Create i3 config dir (status)
+  file:
+    path: ~/.config/i3status/
+    state: directory
+  become_user: gdarruda
 - name: Copy i3 config (status)
   copy:
     src: resources/config_i3_status
     dest: ~/.config/i3status/config
   become_user: gdarruda
-- name: Restart i3
-  shell: i3-msg restart
+- name: Reboot machine (i3)
+  ansible.builtin.reboot:
+# - name: Restart i3
+#   shell: i3-msg restart
+#   become_user: gdarruda
