@@ -1,0 +1,41 @@
+- name: Upgrade all packages 
+  dnf:
+    name: "*"
+    state: latest
+- name: Import VS Code key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+- name: Adding VS Code repo to DNF
+  copy:
+     src: resources/vscode.repo
+     dest: /etc/yum.repos.d/vscode.repo
+- name: Check Update DNF
+  shell: dnf check-update
+- name: Install tooling (e.g. vim, htop, zsh, vscode)
+  dnf:
+    name:
+      - vim
+      - htop
+      - zsh
+      - code
+      - ibm-plex-fonts-all
+      - git
+    state: latest
+- name: Set zsh as default shell
+  user:
+    name: gdarruda
+    shell: /bin/zsh
+- name: Clean Oh My Zsh
+  file:
+    path: ~/.oh-my-zsh
+    state: absent
+  become_user: gdarruda
+- name: Install Oh My Zsh
+  shell: wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | sh
+  become_user: gdarruda
+- name: Configure Oh My Zsh
+  copy:
+     src: resources/.zshrc
+     dest: ~/.zshrc
+  become_user: gdarruda

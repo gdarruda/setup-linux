@@ -1,0 +1,50 @@
+- name: Add signing key (Docker)
+  rpm_key:
+    key: "https://download.docker.com/linux/{{ (ansible_distribution | lower) }}/gpg"
+    state: present
+- name: Add repository into repo.d list (Docker)
+  yum_repository:
+    name: docker
+    description: docker repository
+    baseurl: "https://download.docker.com/linux/{{ (ansible_distribution | lower) }}/$releasever/$basearch/stable"
+    enabled: true
+    gpgcheck: true
+    gpgkey: "https://download.docker.com/linux/{{ (ansible_distribution | lower) }}/gpg"
+- name: Install dnf-plugins-core
+  dnf:
+    name: dnf-plugins-core
+    state: latest
+- name: Install docker packages
+  dnf:
+    name: 
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+    state: latest
+- name: Enable/Start docker service
+  systemd: 
+    name: docker
+    state: started
+    enabled: yes
+- name: Add user to docker group
+  user:
+    name: gdarruda
+    groups: docker
+    append: yes
+- name: Adding Nvidia Docker repos to DNF
+  shell: |
+    curl -s -L https://nvidia.github.io/libnvidia-container/{{ distribution }}/libnvidia-container.repo | sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+  vars:
+    distribution: centos8
+- name: Clean DNF
+  shell: dnf clean expire-cache --refresh
+- name: Install Nvidia docker packages
+  dnf:
+    name: nvidia-docker2
+    state: latest
+- name: Restart docker service
+  systemd: 
+    name: docker
+    state: restarted
+    enabled: yes
