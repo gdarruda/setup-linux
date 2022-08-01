@@ -14,7 +14,7 @@
   copy:
      src: resources/1password.repo
      dest: /etc/yum.repos.d/1password.repo
-- name: Install GUI tools
+- name: Install GUI tools (dnf)
   dnf:
     name:
       - code
@@ -22,3 +22,17 @@
       - alacritty
       - ffmpeg
       - ffmpeg-devel
+      - ibm-plex-mono-fonts
+- name: Add the flathub flatpak repository remote to the user installation
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+- name: Install GUI tools (flatpak)
+  flatpak:
+    name:
+    - com.gitlab.newsflash
+    - org.telegram.desktop
+    - com.microsoft.Edge
+    - org.signal.Signal
+    state: present

@@ -27,3 +27,9 @@
      src: resources/.zshrc
      dest: ~/.zshrc
   become_user: gdarruda
+- name: Settting git e-mail address
+  shell: git config --global user.email "gabriel@gdarruda.me"
+  become_user: gdarruda
+- name: Settting git user name
+  shell: git config --global user.name "Gabriel Arruda"
+  become_user: gdarruda
