@@ -19,7 +19,6 @@
     name:
       - code
       - 1password
-      - alacritty
       - ffmpeg
       - ffmpeg-devel
       - ibm-plex-mono-fonts
