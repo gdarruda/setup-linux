@@ -1,0 +1,10 @@
+- name: Install python3-psutil
+  dnf:
+    name:
+      - python3-psutil
+- name: Use natural scrolling
+  dconf:
+    key: "/org/gnome/desktop/peripherals/mouse/natural-scroll"
+    value: "true"
+    state: present
+  become_user: gdarruda

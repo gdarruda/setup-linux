@@ -2,13 +2,20 @@
   dnf:
     name: "*"
     state: latest
+- name: Upload Xcompose for cedilla bug
+  copy:
+     src: resources/.Xcompose
+     dest: ~/.Xcompose
+  become_user: gdarruda
 - name: Install tooling (e.g. vim, htop, zsh)
   dnf:
     name:
+      - sqlite
       - vim
       - htop
       - zsh
       - git
+      - tmux
     state: latest
 - name: Set zsh as default shell
   user:

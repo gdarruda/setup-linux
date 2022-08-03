@@ -1,3 +1,7 @@
+- name: Install alacritty
+  dnf:
+    name:
+      - alacritty
 - name: Copying Xresources
   copy:
      src: resources/.Xresources

@@ -19,6 +19,7 @@
     name:
       - code
       - 1password
+      - 1password-cli
       - ffmpeg
       - ffmpeg-devel
       - ibm-plex-mono-fonts

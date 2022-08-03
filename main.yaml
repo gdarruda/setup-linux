@@ -18,6 +18,6 @@
     - name: Install apps
       ansible.builtin.include_tasks: 
         file: apps.yaml
-    - name: Config i3
+    - name: Config Gnome
       ansible.builtin.include_tasks: 
-        file: i3.yaml
+        file: gnome.yaml
