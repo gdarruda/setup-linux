@@ -8,3 +8,20 @@
     value: "true"
     state: present
   become_user: gdarruda
+- name: Use tap to click
+  dconf:
+    key: "/org/gnome/desktop/peripherals/touchpad/tap-to-click"
+    value: "true"
+    state: present
+  become_user: gdarruda
+- name: Upload Xcompose for cedilla bug
+  copy:
+     src: resources/.XCompose
+     dest: ~/.XCompose
+  become_user: gdarruda
+- name: Use Xcompose config file
+  dconf:
+    key: "/org/gnome/desktop/settings-daemon/plugins/xsettings"
+    value: "{'Gtk/IMModule': <'ibus'>}"
+    state: present
+  become_user: gdarruda

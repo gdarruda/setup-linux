@@ -1,0 +1,16 @@
+- name: Adding Nvidia Docker repos to DNF
+  shell: |
+    curl -s -L https://nvidia.github.io/libnvidia-container/{{ distribution }}/libnvidia-container.repo | sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+  vars:
+    distribution: centos8
+- name: Clean DNF
+  shell: dnf clean expire-cache --refresh
+- name: Install Nvidia docker packages
+  dnf:
+    name: nvidia-docker2
+    state: latest
+- name: Restart docker service
+  systemd: 
+    name: docker
+    state: restarted
+    enabled: yes

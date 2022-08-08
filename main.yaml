@@ -11,7 +11,7 @@
         file: basic.yaml
     - name: Hardware setup
       ansible.builtin.include_tasks: 
-        file: hardware.yaml
+        file: hardware-macbook.yaml
     - name: Install Docker
       ansible.builtin.include_tasks: 
         file: docker.yaml

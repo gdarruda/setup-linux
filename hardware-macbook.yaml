@@ -1,0 +1,17 @@
+- name: Add RPM Fusion (free)
+  dnf:
+    name:
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version }}.noarch.rpm
+    disable_gpg_check: true
+- name: Add RPM Fusion (non-free)
+  dnf:
+    name:
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ version }}.noarch.rpm
+    disable_gpg_check: true
+- name: Install Broadcom drivers
+  dnf:
+    name: 
+      - broadcom-wl
+    state: latest
+- name: Reboot machine (Broadcom Drivers)
+  ansible.builtin.reboot:

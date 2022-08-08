@@ -22,12 +22,8 @@
       - 1password-cli
       - ffmpeg
       - ffmpeg-devel
-      - ibm-plex-mono-fonts
 - name: Add the flathub flatpak repository remote to the user installation
-  flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  shell: "flatpak remote-modify flathub --no-filter"
 - name: Install GUI tools (flatpak)
   flatpak:
     name:
