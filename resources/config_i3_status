@@ -5,19 +5,13 @@ general {
 }
 
 order += "cpu_usage"
-order += "cpu_temperature 0"
 order += "memory"
-order += "wireless wlo1"
 order += "tztime local"
 
 cpu_usage {
 	format= "cpu (usage): %usage"
 }
 
-cpu_temperature 0 {
-	path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
-	format = "cpu (temp): %degrees °C"
-}
 
 memory {
         format = "memory: %free %available (%used) / %total"
@@ -27,9 +21,4 @@ memory {
 
 tztime local {
 	format = "%Y-%m-%d %H:%M:%S"
-}
-
-wireless wlo1 {
-        format_up = "wireless:(%quality at %essid, %bitrate) %ip"
-        format_down = "wireless: down"
 }

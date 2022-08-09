@@ -2,13 +2,15 @@
   dnf:
     name:
       - alacritty
+- name: Copying alacritty.yml
+  copy:
+     src: resources/.alacritty.yml
+     dest: ~/.alacritty.yml
+  become_user: gdarruda
 - name: Copying Xresources
   copy:
      src: resources/.Xresources
      dest: ~/.Xresources
-  become_user: gdarruda
-- name: Set default sink to HDMI
-  shell: pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1
   become_user: gdarruda
 - name: Inverting mouse scroll
   copy:
