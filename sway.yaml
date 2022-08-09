@@ -1,0 +1,37 @@
+- name: Install alacritty
+  dnf:
+    name:
+      - alacritty
+      - sway
+- name: Copying alacritty.yml
+  copy:
+     src: resources/.alacritty.yml
+     dest: ~/.alacritty.yml
+  become_user: gdarruda
+- name: Create sway config dir
+  file:
+    path: ~/.config/sway/
+    state: directory
+  become_user: gdarruda
+- name: Copy sway config
+  copy:
+    src: resources/config
+    dest: ~/.config/sway/config
+  become_user: gdarruda
+- name: Create waybar config dir 
+  file:
+    path: ~/.config/waybar/
+    state: directory
+  become_user: gdarruda
+- name: Copy waybar config 
+  copy:
+    src: resources/config_waybar
+    dest: ~/.config/waybar/config
+  become_user: gdarruda
+- name: Copy waybar style
+  copy:
+    src: resources/style.css
+    dest: ~/.config/waybar/config
+  become_user: gdarruda
+- name: Reboot machine (sway)
+  ansible.builtin.reboot:

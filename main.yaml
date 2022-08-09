@@ -18,9 +18,9 @@
     - name: Install apps
       ansible.builtin.include_tasks: 
         file: apps.yaml
-    - name: Config i3wm
+    - name: Config sway 
       ansible.builtin.include_tasks: 
-        file: i3.yaml    
+        file: sway.yaml
     - name: Config Gnome
       ansible.builtin.include_tasks: 
         file: gnome.yaml
