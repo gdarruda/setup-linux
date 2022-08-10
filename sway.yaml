@@ -3,6 +3,7 @@
     name:
       - alacritty
       - sway
+      - waybar
 - name: Copying alacritty.yml
   copy:
      src: resources/.alacritty.yml
@@ -31,7 +32,20 @@
 - name: Copy waybar style
   copy:
     src: resources/style.css
-    dest: ~/.config/waybar/config
+    dest: ~/.config/waybar/style.css
   become_user: gdarruda
-- name: Reboot machine (sway)
-  ansible.builtin.reboot:
+- name: Create nvim config dir 
+  file:
+    path: ~/.config/nvim/
+    state: directory
+  become_user: gdarruda
+- name: Copy vim files
+  copy:
+    src: resources/init.vim
+    dest: ~/.config/nvim/init.vim
+  become_user: gdarruda
+- name: Install vim-plug
+  shell: curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  become_user: gdarruda
+# - name: Reboot machine (sway)
+#   ansible.builtin.reboot:

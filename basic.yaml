@@ -43,3 +43,9 @@
     name: tailscaled
     state: started
     enabled: yes
+- name: Copy fonts
+  copy:
+    src: fonts/
+    dest: ~/.fonts/
+    directory_mode:
+  become_user: gdarruda
