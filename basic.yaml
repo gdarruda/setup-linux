@@ -1,19 +1,16 @@
 - name: Upgrade all packages 
-  dnf:
+  package:
     name: "*"
     state: latest
-- name: Adding tailscale repo
-  shell: sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 - name: Install tooling (e.g. vim, htop, zsh)
-  dnf:
+  package:
     name:
       - sqlite
-      - neovim
+      - vim
       - htop
       - zsh
       - git
       - tmux
-      - tailscale
     state: latest
 - name: Set zsh as default shell
   user:
@@ -38,14 +35,19 @@
 - name: Settting git user name
   shell: git config --global user.name "Gabriel Arruda"
   become_user: gdarruda
-- name: Enable/Start tailscale service
-  systemd: 
-    name: tailscaled
-    state: started
-    enabled: yes
-- name: Copy fonts
+- name: Install python3-psutil
+  package:
+    name:
+      - python3-psutil
+      - python3-dnf
+- name: Upload Xcompose for cedilla bug
   copy:
-    src: fonts/
-    dest: ~/.fonts/
-    directory_mode:
+     src: resources/.XCompose
+     dest: ~/.XCompose
+  become_user: gdarruda
+- name: Use Xcompose config file
+  dconf:
+    key: "/org/gnome/desktop/settings-daemon/plugins/xsettings"
+    value: "{'Gtk/IMModule': <'ibus'>}"
+    state: present
   become_user: gdarruda

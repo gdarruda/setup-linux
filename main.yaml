@@ -1,8 +1,8 @@
 ---
-- hosts: 192.168.15.12
+- hosts: 192.168.15.30
   # connection: local
   vars:
-    version: 36
+    version: 37
   remote_user: gdarruda
   become: yes
   tasks:
@@ -11,16 +11,16 @@
     #     file: basic.yaml
     # - name: Hardware setup
     #   ansible.builtin.include_tasks: 
-    #     file: hardware-macbook.yaml
+    #     file: hardware-desktop.yaml
     # - name: Install Docker
     #   ansible.builtin.include_tasks: 
     #     file: docker.yaml
     # - name: Install apps
     #   ansible.builtin.include_tasks: 
     #     file: apps.yaml
-    - name: Config sway 
-      ansible.builtin.include_tasks: 
-        file: sway.yaml
+    # - name: Config sway 
+    #   ansible.builtin.include_tasks: 
+    #     file: sway.yaml
     # - name: Config Gnome
     #   ansible.builtin.include_tasks: 
     #     file: gnome.yaml
