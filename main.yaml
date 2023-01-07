@@ -1,26 +1,8 @@
 ---
-- hosts: 192.168.15.30
-  # connection: local
-  vars:
-    version: 37
+- hosts: 10.42.0.1
   remote_user: gdarruda
   become: yes
   tasks:
-    # - name: Basic setup
-    #   ansible.builtin.include_tasks: 
-    #     file: basic.yaml
-    # - name: Hardware setup
-    #   ansible.builtin.include_tasks: 
-    #     file: hardware-desktop.yaml
-    # - name: Install Docker
-    #   ansible.builtin.include_tasks: 
-    #     file: docker.yaml
-    # - name: Install apps
-    #   ansible.builtin.include_tasks: 
-    #     file: apps.yaml
-    # - name: Config sway 
-    #   ansible.builtin.include_tasks: 
-    #     file: sway.yaml
-    # - name: Config Gnome
-    #   ansible.builtin.include_tasks: 
-    #     file: gnome.yaml
+    - name: Basic setup
+      ansible.builtin.include_tasks: 
+        file: basic.yaml

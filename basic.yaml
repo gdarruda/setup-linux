@@ -40,6 +40,15 @@
     name:
       - python3-psutil
       - python3-dnf
+      - python3-dev
+      - build-essential
+      - zlib1g-dev
+      - libssl-dev
+      - libbz2-dev
+      - libncurses5-dev
+      - libffi-dev
+      - libreadline-dev
+      - libsqlite3-dev
 - name: Upload Xcompose for cedilla bug
   copy:
      src: resources/.XCompose
@@ -50,4 +59,12 @@
     key: "/org/gnome/desktop/settings-daemon/plugins/xsettings"
     value: "{'Gtk/IMModule': <'ibus'>}"
     state: present
+  become_user: gdarruda
+- name: Install Pyenv
+  shell: curl https://pyenv.run | bash
+- name: Setting pyenv on zsh
+  shell: |
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
   become_user: gdarruda
