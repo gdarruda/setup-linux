@@ -50,9 +50,9 @@
       - libreadline-dev
       - libsqlite3-dev
       - liblzma-dev
-# - name: Install Pyenv
-#   shell: curl https://pyenv.run | bash
-#   become_user: gdarruda
+- name: Install Pyenv
+  shell: curl https://pyenv.run | bash
+  become_user: gdarruda
 - name: Setting pyenv on zsh
   shell: |
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
