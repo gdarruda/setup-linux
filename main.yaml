@@ -1,5 +1,7 @@
 ---
-- hosts: 10.42.0.1
+- hosts: 169.254.17.231
+  vars:
+    version: 37
   remote_user: gdarruda
   become: yes
   tasks:
