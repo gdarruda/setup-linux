@@ -37,21 +37,23 @@
 - name: Settting git user name
   shell: git config --global user.name "Gabriel Arruda"
   become_user: gdarruda
-# - name: Install python dependencies
-#   package:
-#     name:
-#       - python3-psutil
-#       - python3-dnf
-#       - python3-dev
-#       - build-essential
-#       - zlib1g-dev
-#       - libssl-dev
-#       - libbz2-dev
-#       - libncurses5-dev
-#       - libffi-dev
-#       - libreadline-dev
-#       - libsqlite3-dev
-#       - liblzma-dev
+- name: Install python dependencies
+  package:
+    name:
+      - gcc
+      - zlib-devel
+      - bzip2
+      - bzip2-devel
+      - readline-devel
+      - sqlite
+      - sqlite-devel
+      - openssl-devel
+      - tk-devel
+      - libffi-devel
+      - xz-devel
+      - libuuid-devel
+      - gdbm-devel
+      - libnsl2-devel
 - name: Install Pyenv
   shell: curl https://pyenv.run | bash
   become_user: gdarruda
