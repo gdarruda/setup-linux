@@ -1,10 +1,8 @@
 ---
-- hosts: 169.254.17.231
-  vars:
-    version: 37
+- hosts: 192.168.15.30
   remote_user: gdarruda
   become: yes
   tasks:
     - name: Basic setup
       ansible.builtin.include_tasks: 
-        file: basic.yaml
+        file: ubuntu.yaml
